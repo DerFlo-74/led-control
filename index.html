@@ -23,6 +23,7 @@
     }
     #onBtn { background-color: #4CAF50; color: white; }
     #offBtn { background-color: #f44336; color: white; }
+    #submitBtn { background-color: #f44336; color: white; }
     #status {
       margin-top: 30px;
       font-size: 20px;
@@ -31,18 +32,16 @@
 </head>
 <body>
   <h1>Chastity Key Monitor</h1>
-  <h2>LOCKED/UNLOCKED</h2>
+  <div id="status">LOCKED/UNLOCKED</div>
   <form action="/lock" method="POST">
-      <label for="unlock_key">Choose unlock key:</label><br>
+      <label for="unlock_key">Unlock key:</label>
       <input type="text" id="unlock_key" name="unlock_key"><br>
-      <label for="locking_time">Locking time in hours (0 = indefinite):</label><br>
-      <input type="text" id="locking_time" name="locking_time" value="0">
-      <input type="submit">
+      <label for="locking_time">Locking time in hours (0 = indefinite):</label>
+      <input type="text" id="locking_time" name="locking_time" value="0"><br>
+      <input type="submit" id="submitBtn" value="Lock">
   </form>
-  <label>SET NEW PASSWORD</label>
   <button id="onBtn">LED AN</button>
   <button id="offBtn">LED AUS</button>
-  <div id="status">Lade LED-Status...</div>
 
   <script>
     const apiUrl = 'https://nj1qtlgr8g.execute-api.eu-central-1.amazonaws.com/dev/led';
